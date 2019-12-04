@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CourceDetail;
+use App\CourceModule;
 use Illuminate\Http\Request;
 
 class CourceDetailController extends Controller
@@ -12,6 +13,11 @@ class CourceDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('pages.Course.create');
@@ -24,7 +30,7 @@ class CourceDetailController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +41,21 @@ class CourceDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+    $size=count(request('name'));  
+    $course=new CourceDetail();
+    $course->course_name=request('course');
+    $course->save();
+      for($i=0; $i<$size; $i++)
+      {
+        $module=new CourceModule();
+
+         $module->Module_Name=request('name')[$i];
+         $module->Level=request('level')[$i];
+         $module->course_id=$course->id;
+         $module->save();
+      }
+      return "Good";
     }
 
     /**
@@ -46,7 +66,7 @@ class CourceDetailController extends Controller
      */
     public function show(CourceDetail $courceDetail)
     {
-        //
+       
     }
 
     /**
@@ -57,7 +77,7 @@ class CourceDetailController extends Controller
      */
     public function edit(CourceDetail $courceDetail)
     {
-        //
+        
     }
 
     /**

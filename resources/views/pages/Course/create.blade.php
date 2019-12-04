@@ -19,45 +19,65 @@
                 <div class="card-body">
                    
                     <div class="form-group row">
-                        <label class="control-label col-sm-4 text-right font-weight-bold" for="crud-indirizzo_carico">Company Name</label>
+                        <label class="control-label col-sm-4 text-right font-weight-bold" for="crud-indirizzo_carico">Course Name</label>
                         <div class="col-sm-8" id="wrap-indirizzo_carico">
-                            <input name="name" type="text" class="form-control input-sm" value=""
+                            <input name="course" type="text" class="form-control input-sm" value=""
                                    placeholder="Company Name" required>
                         </div>
                     </div>
 
                     <hr>
-                    <div class="form-group row">
-                        <label class="control-label col-sm-4 text-right font-weight-bold" for="crud-indirizzo_carico">Company Address</label>
-                        <div class="col-sm-8" id="wrap-indirizzo_carico">
-                            <input name="address" type="text" class="form-control input-sm" value=""
+                <div class="content-header row">
+                <div class="content-header-left col-md-9 col-12 mb-2">
+                <h3>Add Module For Course</h3>
+                </div>
+
+             
+                 
+                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
+        <a href="javascript:void(0);" class="btn btn-primary pull-right add-div" title="Add field" style="margin-top: 16px;"> <i class="fa fa-plus"></i></a>
+        </div>
+                        </div>
+                 
+                
+                    <div class="field_wrapper parent-of-copied">
+                 
+                    <div class="form-group row extend-form to-copy">
+
+                     <div class="col-lg-12">
+                     <div class="pull-right" style="margin-top: 12px;">
+                    <div class="content-header-right text-md-right  d-md-block d-none">
+        <a href="javascript:void(0);" class="btn btn-primery remove-div" style="background-color: red; color:white;" title="Remove Module"> <i class="fa fa-minus" aria-hidden="true"></i></a>
+        </div>
+                    </div>
+                      <div class="col-sm-4 pull-right">
+                        <label class="control-label  text-right font-weight-bold" for="crud-indirizzo_carico">Module Name</label>
+                        <div  id="wrap-indirizzo_carico">
+                            <input name="name[]" type="text" class="form-control input-sm" value=""
                                    placeholder="Company Address" required>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="form-group row">
-                            <label class="control-label col-sm-4 text-right font-weight-bold"
-                                   for="crud-contratto">Status</label>
-                            <div class="col-sm-8 dropdown-mul-2" id="wrap-contratto">
+                        </div>
+                        <div class="col-sm-4 pull-right">
+                            <label class="control-label  text-right font-weight-bold"
+                                   for="crud-contratto">Level</label>
+                            
                 
-                                <select required="" data-select-2="" name="status"
-                                        class="form-control input-sm select2-hidden-accessible"  id="crud-contratto mul-2">
-                              
-                            <option value="1">Sample</option>
-
-                                   
+                            <select class="form-control" name="level[]" id="basicSelect">
+                                                        <option value="1">IT</option>
+                                                        <option value="2">Blade Runner</option>
+                                                        <option value="3">Thor Ragnarok</option>
+                                                    </select>
                            
-                                       
-                                   
-                                   
-                                   
-                                </select>
-                            </div>
+                            
+                        </div>
+                 
                         </div>    
                   
-
-                    <hr>
-
+                    </div>
+                   
+                    </div>
+                   
+                    
 
                 </div>
             </div>
@@ -80,7 +100,31 @@
 
 
 
-
+    <script type="text/javascript">
+// $(document).ready(function(){
+//     var maxField = 10; //Input fields increment limitation
+//     var addButton = $('.add_button'); //Add button selector
+//     var wrapper = $('.field_wrapper'); //Input field wrapper
+//     var fieldHTML = '<div class="form-group row"><div class="col-lg-12"><div class="pull-right" style="margin-top: 12px;"><div class="content-header-right text-md-right  d-md-block d-none"><a href="javascript:void(0);" class="btn btn-primery remove_button" style="background-color: red; color:white;" title="Remove Module"> <i class="fa fa-minus" aria-hidden="true"></i></a></div></div><div class="col-sm-4 pull-right"><label class="control-label  text-right font-weight-bold" for="crud-indirizzo_carico">Module Name</label><div  id="wrap-indirizzo_carico"><input name="address" type="text" class="form-control input-sm" value="" placeholder="Company Address" required></div></div><div class="col-sm-4 pull-right"><label class="control-label  text-right font-weight-bold" for="crud-contratto">Level</label><div class="dropdown-mul-2" id="wrap-contratto"><select required="" data-select-2="" name="status" class="form-control input-sm select2-hidden-accessible"  id="crud-contratto mul-2"><option value="1">Sample</option></select></div></div></div></div>'; //New input field html 
+//     var x = 1; //Initial field counter is 1
+    
+//     //Once add button is clicked
+//     $(addButton).click(function(){
+//         //Check maximum number of input fields
+//         if(x < maxField){ 
+//             x++; //Increment field counter
+//             $(wrapper).append($(".extend-form")); //Add field html
+//         }
+//     });
+    
+//     //Once remove button is clicked
+//     $(wrapper).on('click', '.remove_button', function(e){
+//         e.preventDefault();
+//        $(document).removeClass('extend-form'); //Remove field html
+//         x--; //Decrement field counter
+//     });
+// });
+</script>
 
     <script>
             var Random = Mock.Random;
@@ -131,5 +175,47 @@
         
           
           </script>
+
+<script>
+                $(function() {
+                  document.querySelector('.add-div').onclick = function() {
+                    document.querySelector('.parent-of-copied').insertAdjacentHTML('beforeend', `<div class="form-group row extend-form to-copy">
+
+                     <div class="col-lg-12">
+                     <div class="pull-right" style="margin-top: 12px;">
+                    <div class="content-header-right text-md-right  d-md-block d-none">
+        <a href="javascript:void(0);" class="btn btn-primery remove-div waves-effect waves-light" style="background-color: red; color:white;" title="Remove Module"> <i class="fa fa-minus" aria-hidden="true"></i></a>
+        </div>
+                    </div>
+                      <div class="col-sm-4 pull-right">
+                        <label class="control-label  text-right font-weight-bold" for="crud-indirizzo_carico">Module Name</label>
+                        <div id="wrap-indirizzo_carico">
+                            <input name="name[]" type="text" class="form-control input-sm" value="" placeholder="Company Address" required="">
+                        </div>
+                        </div>
+                        <div class="col-sm-4 pull-right">
+                            <label class="control-label  text-right font-weight-bold" for="crud-contratto">Level</label>
+                           
+                
+                            <select class="form-control" name="level[]" id="basicSelect">
+                                                        <option value="1">IT</option>
+                                                        <option value="2">Blade Runner</option>
+                                                        <option value="3">Thor Ragnarok</option>
+                                                    </select>
+     
+                            
+                       
+                 
+                        </div>    
+                  
+                    </div>`);
+                  }
+                })
+
+
+                $(document).on('click','.remove-div', function() {
+                  $(this).closest('.to-copy').remove();
+                });
+              </script>
 
 @endsection
